@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer className="wrapper footer">
+    <footer className="wrapper footer leftCenter">
       <div className="content">
         제1공학관 A537
         <br />
