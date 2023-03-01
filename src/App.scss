@@ -8,6 +8,8 @@ $ERROR: #e45959;
 
 body {
   color: $BLACK;
+  word-break: keep-all;
+  line-height: 1.4;
 }
 
 .columnCenter {
@@ -32,7 +34,7 @@ body {
 
 .wrapper {
   width: 100%;
-  height: calc(100vh - 160px);
+  min-height: calc(100vh - 160px);
   padding: 30px;
 
   box-sizing: border-box;
@@ -61,6 +63,7 @@ body {
   color: $DARK;
   box-sizing: border-box;
   background-color: $GRAY;
+  padding: 30px;
 }
 
 .image {
@@ -104,7 +107,7 @@ body {
   background-color: $LIGHT;
 }
 .text {
-  width: 200px;
+  width: 500px;
   text-align: center;
   font-size: 1em;
   padding: 2px 10px 5px 10px;

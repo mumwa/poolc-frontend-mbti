@@ -2,7 +2,7 @@ import React from "react";
 import Button from "../common/Button";
 import { useNavigate } from "react-router-dom";
 
-function Main(props) {
+function Main() {
   let navigate = useNavigate();
   function clickStart() {
     navigate("/quiz");

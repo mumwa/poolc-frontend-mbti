@@ -1,15 +1,29 @@
 import React from "react";
 import { MdOutlineNavigateNext, MdOutlineNavigateBefore } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 function Pagination(props) {
+  const navigate = useNavigate();
+  const toMain = () => {
+    navigate("/main");
+  };
+  const toResult = () => {
+    navigate("/result");
+  };
   return (
     <div className="pagination">
-      <button className="nextprev rowCenter">
+      <button
+        className="nextprev rowCenter"
+        onClick={props.index === 0 ? toMain : props.prevIndex}
+      >
         <MdOutlineNavigateBefore />
-        이전
+        {props.index === 0 ? "메인" : "이전"}
       </button>
-      <button className="nextprev rowCenter">
-        다음
+      <button
+        className="nextprev rowCenter"
+        onClick={props.index === 7 ? toResult : props.nextIndex}
+      >
+        {props.index === 7 ? "완료" : "다음"}
         <MdOutlineNavigateNext />
       </button>
     </div>

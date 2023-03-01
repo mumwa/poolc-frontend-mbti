@@ -17,7 +17,7 @@ function App() {
           <Routes>
             <Route exact path="/" element={<Main />} />
             <Route exact path="/quiz" element={<Quiz />} />
-            <Route exact path="/complete" element={<Result />} />
+            <Route exact path="/result" element={<Result />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </BrowserRouter>

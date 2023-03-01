@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 function Footer() {
   return (
-    <footer className="wrapper footer leftCenter">
+    <footer className="footer leftCenter">
       <div className="content">
         제1공학관 A537
         <br />
