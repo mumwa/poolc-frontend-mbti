@@ -49,9 +49,11 @@ function Quiz() {
     <>
       <h3>{index}번</h3>
       <h4>{question[index].question}</h4>
-      {/* <div onClick={prevPage()}></div> */}
-      <div></div>
-      <img src="img/1.png" alt="quiz_image_developer" className="image" />
+      <img
+        src={"img/q" + index + ".png"}
+        alt="quiz_image_developer"
+        className="image"
+      />
       <Select selected={select[index][0]} onClick={update0}>
         {question[index][0]}
       </Select>
