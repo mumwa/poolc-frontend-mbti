@@ -1,4 +1,5 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { RecoilRoot, atom } from "recoil";
 
 import Header from "./components/Header";
 import Wrapper from "./components/Wrapper";
@@ -9,8 +10,9 @@ import Quiz from "./components/page/Quiz";
 import Result from "./components/page/Result";
 
 function App() {
+  const mbti = atom({ key: "mbti", default: "intp" });
   return (
-    <>
+    <RecoilRoot>
       <Header title="PoolC mbti test"></Header>
       <Wrapper>
         <BrowserRouter>
@@ -23,7 +25,7 @@ function App() {
         </BrowserRouter>
       </Wrapper>
       <Footer></Footer>
-    </>
+    </RecoilRoot>
   );
 }
 export default App;
