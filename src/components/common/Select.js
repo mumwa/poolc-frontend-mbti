@@ -5,10 +5,8 @@ import { ImRadioChecked2, ImRadioUnchecked } from "react-icons/im";
 function Select(props) {
   return (
     <div onClick={props.onClick} className="select rowCenter">
-      <div className="rowCenter">
-        <div>{props.selected ? <ImRadioChecked2 /> : <ImRadioUnchecked />}</div>
-        <div className="text">{props.children}</div>
-      </div>
+      <div>{props.selected ? <ImRadioChecked2 /> : <ImRadioUnchecked />}</div>
+      <div className="text">{props.children}</div>
     </div>
   );
 }

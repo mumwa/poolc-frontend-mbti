@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import Select from "../common/Select";
 import Pagination from "../common/Pagination";
 import question from "./question";
+import calMbti from "./calMbti";
 
-function Quiz() {
+function Quiz(props) {
   const [index, setIndex] = useState(0);
   const nextIndex = () => {
     setIndex(index + 1);
@@ -11,6 +12,10 @@ function Quiz() {
   const prevIndex = () => {
     setIndex(index - 1);
   };
+  const calAnswer = () => {
+    props.setResult(calMbti(select));
+  };
+  //순수 함수가 아닌데... 일단 짜겠습니다....
   const [select, setSelect] = useState({
     0: { 0: true },
     1: { 0: true },
@@ -49,9 +54,11 @@ function Quiz() {
     <>
       <h3>{index}번</h3>
       <h4>{question[index].question}</h4>
-      {/* <div onClick={prevPage()}></div> */}
-      <div></div>
-      <img src="img/1.png" alt="quiz_image_developer" className="image" />
+      <img
+        src={"img/q" + index + ".png"}
+        alt="quiz_image_developer"
+        className="image"
+      />
       <Select selected={select[index][0]} onClick={update0}>
         {question[index][0]}
       </Select>
@@ -68,6 +75,7 @@ function Quiz() {
         nextIndex={nextIndex}
         prevIndex={prevIndex}
         index={index}
+        calAnswer={calAnswer}
       ></Pagination>
     </>
   );
