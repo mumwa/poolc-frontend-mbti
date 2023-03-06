@@ -3,6 +3,7 @@ import Select from "../common/Select";
 import Pagination from "../common/Pagination";
 import question from "./question";
 import calMbti from "./calMbti";
+import { result } from "../../api";
 
 function Quiz(props) {
   const [index, setIndex] = useState(0);
@@ -13,9 +14,29 @@ function Quiz(props) {
     setIndex(index - 1);
   };
   const calAnswer = () => {
-    props.setResult(calMbti(select));
+    return calMbti(select);
   };
-  //순수 함수가 아닌데... 일단 짜겠습니다....
+  const sendResult = () => {
+    console.log("api 보내는 작동");
+    result(
+      parseInt(Object.keys(select[0])),
+      parseInt(Object.keys(select[1])),
+      parseInt(Object.keys(select[2])),
+      parseInt(Object.keys(select[3])),
+      parseInt(Object.keys(select[4])),
+      parseInt(Object.keys(select[5])),
+      parseInt(Object.keys(select[6])),
+      parseInt(Object.keys(select[7]))
+    )
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  //이러면 순수함수가 아니게 되고 select state가 있는 부모 컴포넌트에 종속되어 버림.
+  //인수로 받아서 쓰는게 나은데 저는 급해서 일단 ㅎㅎ^^
   const [select, setSelect] = useState({
     0: { 0: true },
     1: { 0: true },
@@ -27,25 +48,21 @@ function Quiz(props) {
     7: { 0: true },
   });
   const update0 = () => {
-    console.log(index);
     setSelect((select) => {
       return { ...select, [index]: { 0: true } };
     });
   };
   const update1 = () => {
-    console.log(index);
     setSelect((select) => {
       return { ...select, [index]: { 1: true } };
     });
   };
   const update2 = () => {
-    console.log(index);
     setSelect((select) => {
       return { ...select, [index]: { 2: true } };
     });
   };
   const update3 = () => {
-    console.log(index);
     setSelect((select) => {
       return { ...select, [index]: { 3: true } };
     });
@@ -76,6 +93,7 @@ function Quiz(props) {
         prevIndex={prevIndex}
         index={index}
         calAnswer={calAnswer}
+        sendResult={sendResult}
       ></Pagination>
     </>
   );

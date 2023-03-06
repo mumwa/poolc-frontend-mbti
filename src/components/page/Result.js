@@ -1,13 +1,12 @@
 import React from "react";
 import Button from "../common/Button";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { CgDanger } from "react-icons/cg";
 import { AiFillHeart } from "react-icons/ai";
-
-import mbti from "./mbti";
-
+import mbtiList from "./mbtiList";
 function Result(props) {
   const navigate = useNavigate();
+  const { mbti } = useParams();
   const toMain = () => {
     navigate("/main");
   };
@@ -16,23 +15,23 @@ function Result(props) {
       <h2>
         당신은{" "}
         <b>
-          {mbti[props.mbti].name} 개발자({props.mbti})
+          {mbtiList[mbti].name} 개발자({mbti})
         </b>
         입니다
       </h2>
       <img
-        src={"img/a_" + props.mbti + ".png"}
+        src={"/img/" + mbti + ".png"}
         alt="main_image_developer"
         className="image"
       />
-      <div className="resultWrapper">{mbti[props.mbti].content}</div>
+      <div className="resultWrapper">{mbtiList[mbti].content}</div>
       <div className="resultWrapper">
         <b className="rowCenter">
           <CgDanger />
           주의
         </b>
         <div className="resultWrapper"></div>
-        {mbti[props.mbti].caution}
+        {mbtiList[mbti].caution}
       </div>
       <br />
       <div className="comment">버튼 햄버거!</div>

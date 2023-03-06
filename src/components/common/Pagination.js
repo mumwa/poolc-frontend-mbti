@@ -8,8 +8,8 @@ function Pagination(props) {
     navigate("/main");
   };
   const toResult = () => {
-    props.calAnswer();
-    navigate("/result");
+    props.sendResult();
+    navigate("/result/" + props.calAnswer());
   };
   return (
     <div className="pagination">
