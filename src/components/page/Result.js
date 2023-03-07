@@ -20,7 +20,7 @@ function Result(props) {
         입니다
       </h2>
       <img
-        src={"/img/" + mbti + ".png"}
+        src={process.env.PUBLIC_URL + "/img/" + mbti + ".png"}
         alt="main_image_developer"
         className="image"
       />

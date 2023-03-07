@@ -10,7 +10,11 @@ function Main() {
   return (
     <div className="columnCenter">
       <h1>PoolC 개발자 테스트</h1>
-      <img src="img/0.png" alt="main_image_developer" className="image" />
+      <img
+        src={process.env.PUBLIC_URL + "img/0.png"}
+        alt="main_image_developer"
+        className="image"
+      />
       <Button onClick={clickStart}>시작하기</Button>
     </div>
   );

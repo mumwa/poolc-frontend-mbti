@@ -72,7 +72,7 @@ function Quiz(props) {
       <h3>{index}번</h3>
       <h4>{question[index].question}</h4>
       <img
-        src={"img/q" + index + ".png"}
+        src={process.env.PUBLIC_URL + "img/q" + index + ".png"}
         alt="quiz_image_developer"
         className="image"
       />
