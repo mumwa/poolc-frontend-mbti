@@ -28,7 +28,7 @@ function Quiz(props) {
       parseInt(Object.keys(select[7]))
     )
       .then((response) => {
-        console.log(response);
+        // console.log(response);
       })
       .catch((error) => {
         console.log(error);
