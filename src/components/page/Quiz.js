@@ -17,7 +17,6 @@ function Quiz(props) {
     return calMbti(select);
   };
   const sendResult = () => {
-    console.log("api 보내는 작동");
     result(
       parseInt(Object.keys(select[0])),
       parseInt(Object.keys(select[1])),
